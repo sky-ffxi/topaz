@@ -17,6 +17,7 @@ WORKDIR /topaz
 RUN apt update && \
   apt install -y \
     mysql-client \
+    libzmq5 \
     libmariadb-dev-compat && \
   rm -rf /var/lib/apt/lists/*
 

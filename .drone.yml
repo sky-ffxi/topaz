@@ -34,7 +34,7 @@ steps:
   depends_on:
   - build-executables
 
-- name: package-topaz-games
+- name: package-topaz-game
   image: plugins/docker
   settings:
     repo: skyffxi/topaz-game
