@@ -33,4 +33,4 @@ COPY /conf/default/* conf/
 RUN chmod +x ./docker/topaz-game/wait.sh
 
 # Startup the server when the container starts
-ENTRYPOINT ./docker/topaz-game/wait.sh
+# ENTRYPOINT ./docker/topaz-game/wait.sh
