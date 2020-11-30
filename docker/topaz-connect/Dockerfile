@@ -16,18 +16,17 @@ WORKDIR /topaz
 # Update and install all requirements as well as some useful tools such as net-tools and nano
 RUN apt update && \
   apt install -y \
-    mysql-client \
-    libmysqlclient21 \
-    libzmq5 && \
+    mysql-client && \
   rm -rf /var/lib/apt/lists/*
 
-# Add the important files
-ADD ./conf /topaz
-ADD ./docker/topaz-connect/wait.sh /topaz
+# Copy everything from the host machine topaz folder to /topaz
+ADD . /topaz
+
+# Copy the docker config files to the conf folder instead of the default config
 COPY /conf/default/* conf/
 
 # Ensure wait_for_db_then_launch.sh is executable
-RUN chmod +x ./wait.sh
+RUN chmod +x ./docker/topaz-connect/wait.sh
 
 # Startup the server when the container starts
-ENTRYPOINT ./wait.sh
+ENTRYPOINT ./docker/topaz-connect/wait.sh
