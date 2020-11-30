@@ -16,6 +16,7 @@ steps:
     CC: /usr/bin/clang
     CXX: /usr/bin/clang++
   commands:
-  - apt update
-  - apt install -y software-properties-common cmake libmariadb-dev-compat libluajit-5.1-dev libzmq3-dev zlib1g-dev libssl-dev
-  - make -j $(nproc)
+  - ls -la
+  # - apt update
+  # - apt install -y software-properties-common cmake libmariadb-dev-compat libluajit-5.1-dev libzmq3-dev zlib1g-dev libssl-dev
+  # - make -j $(nproc)
