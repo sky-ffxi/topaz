@@ -33,3 +33,27 @@ steps:
       from_secret: docker-password
   depends_on:
   - build-executables
+
+- name: package-topaz-games
+  image: plugins/docker
+  settings:
+    repo: skyffxi/topaz-game
+    dockerfile: /skyffxi/docker/topaz-game/Dockerfile
+    username:
+      from_secret: docker-username
+    password:
+      from_secret: docker-password
+  depends_on:
+  - build-executables
+
+- name: package-topaz-search
+  image: plugins/docker
+  settings:
+    repo: skyffxi/topaz-search
+    dockerfile: /skyffxi/docker/topaz-search/Dockerfile
+    username:
+      from_secret: docker-username
+    password:
+      from_secret: docker-password
+  depends_on:
+  - build-executables

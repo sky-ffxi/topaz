@@ -22,14 +22,14 @@ RUN apt update && \
 
 # Copy everything from the host machine topaz folder to /topaz
 ADD . /topaz
-RUN rm /topaz/topaz_game && \
-  rm /topaz/topaz_search
+RUN rm /topaz/topaz_connect && \
+  rm /topaz/topaz_game
 
 # Copy the docker config files to the conf folder instead of the default config
 COPY /conf/default/* conf/
 
 # Ensure wait.sh is executable
-RUN chmod +x ./docker/topaz-connect/wait.sh
+RUN chmod +x ./docker/topaz-search/wait.sh
 
 # Startup the server when the container starts
-ENTRYPOINT ./docker/topaz-connect/wait.sh
+ENTRYPOINT ./docker/topaz-search/wait.sh
