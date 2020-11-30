@@ -1,0 +1,21 @@
+kind: pipeline
+type: docker
+name: default
+
+workspace:
+  base: /skyffxi
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build-base-executable
+  image: ubuntu:18.04
+  environment:
+    CC: /usr/bin/clang
+    CXX: /usr/bin/clang++
+  commands:
+  - apt update
+  - apt install -y software-properties-common cmake libmariadb-dev-compat libluajit-5.1-dev libzmq3-dev zlib1g-dev libssl-dev
+  - make -j $(nproc)
