@@ -23,7 +23,7 @@ steps:
   - ls -la
 
 - name: package-topaz-connect
-  images: plugins/docker
+  image: plugins/docker
   settings:
     auto_tag: true
     repo: skyffxi/topaz-connect
