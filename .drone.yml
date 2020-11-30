@@ -21,3 +21,16 @@ steps:
   - cmake .
   - make -j $(nproc)
   - ls -la
+
+- name: package-topaz-connect
+  images: plugins/docker
+  settings:
+    auto_tag: true
+    repo: skyffxi/topaz-connect
+    dockerfile: docker/topaz-connect/Dockerfile
+    username:
+      from_secret: docker-username
+    password:
+      from_secret: docker-password
+  depends_on:
+  - build-executables
