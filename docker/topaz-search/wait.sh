@@ -1,6 +1,8 @@
 #!/bin/bash
 
-while ! mysql --host=$MYSQL_DB_HOST --port=$MYSQL_DB_PORT --user=$MYSQL_DB_USER --password=$MYSQL_DB_PASSWORD -e "USE $MYSQL_DB_NAME; SELECT 1 FROM zone_weather LIMIT 1"; do
+mkdir ./log
+
+while ! mysql --host=$TPZ_DB_HOST --port=$TPZ_DB_PORT --user=$TPZ_DB_USER --password=$TPZ_DB_USER_PASSWD -e "USE $TPZ_DB_NAME; SELECT 1 FROM zone_weather LIMIT 1"; do
     sleep 5
     echo "Retrying connection to Database..."
 done
